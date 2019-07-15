@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=	, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <title>Vue slot</title>
+  <script src="lib/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.6/vue-router.js"></script>
+</head>
+<body>
+ <div id="app">
+ </div>
+
+
+ <script>
+ const Home = {template: `<div>Welcome All</div>`}
+ const About = {template: `<div>About our page</div>`}
+ const Contact = {template: `<div>This is contact page</div>`}
+ const NotFound = {template: `<div>Page Not Found!!!</div>`}
+ 
+ const routes = [
+ {'path': '/', component: Home},
+ {'path': '/about', component: About},
+ {'path': '/contact', component: Contact},  
+ {'path': '*', component: NotFound},  
+];
+
+ const router = new VueRouter({
+    //mode: 'history',
+    routes
+})
+
+ new Vue({
+   router,
+    el:'#app',
+   data:{
+   
+    
+  },
+   methods: {
+       
+   },
+   template:`<div>
+    <div class="menu">
+     <router-link to="/">Home |</router-link>
+     <router-link to="/about">About |</router-link>
+     <router-link to="/contact">Contact |</router-link>
+     </div>
+     <router-view></router-view>
+    </div>`,  
+ })
+ </script>
+ 
+
+</body>
+</html>
