@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Vue</title>
+  <link rel="stylesheet" href="style.css">
+ <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+ <ol>
+     <li v-for="todo in todos">
+      {{todo.text}}
+     </li>
+ </ol>
+ <hr>
+ <span v-for="n in 15">{{n}}</span>
+ <br>
+ <br>
+<button v-on:click="clickMe()">{{buttonText}}</button>
+<hr>
+<button @click="reverseMessage()">Revrese</button>
+<input type="text" @input="reverseMessage()">
+<p>{{message}}</p>
+<input type="text" v-model="message">
+<hr>
+
+<select v-model='selected'>
+  <option v-for="option in options"
+  :value="option.value">{{option.text}}
+</option>
+</select>
+<span>Selected: {{selected}}</span>
+<hr>
+<p>Original  Message: {{message}}</p>
+<p>Computed Message: {{reverseMessage}}</p>  
+<input type="text" v-model="message"> 
+<div class="count"><u>Via Computed : {{itemsCount}}</u></i></div>
+<div v-for='item in items'>{{item}}</div>
+<br>
+<button @click="items.push('I am new!!!')">Add new Item</button>
+<hr>
+<!-- <div class="static" :class="classObject"></div>
+<div class="static-acive"></div> -->
+
+<div><input type="text" v-model="firstName" placeholder="firsstName"></div>
+<div><input type="text" v-model="lastName" placeholder="lastName"></div>
+<div>{{fullName}}</div>
+ <hr>
+ <ul> 
+<todo-item v-for="item in groceryList"
+:todo="item"
+:key="item.id"
+:item="item"></todo-item>   
+ </ul>
+
+<!--End app di v-->
+</div>
+<script src="main.js"></script>
+</body>
+</html>
